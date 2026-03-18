@@ -24,7 +24,7 @@ TEMP_CRON=$(mktemp)
 
 # Add our job (marker at end so # doesn't break the redirect)
 LOG_FILE="$HOME/Library/Logs/crossover_reset.log"
-echo "0 * * * * $RESET_SCRIPT >> \"$LOG_FILE\" 2>&1 $CRON_MARKER" >> "$TEMP_CRON"
+echo "0 */3 * * * $RESET_SCRIPT >> \"$LOG_FILE\" 2>&1 $CRON_MARKER" >> "$TEMP_CRON"
 
 # Install the new crontab
 crontab "$TEMP_CRON"
